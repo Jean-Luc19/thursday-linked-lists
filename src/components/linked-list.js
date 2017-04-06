@@ -26,6 +26,18 @@ class LinkedList {
         this.length++;
     }
 
+    insertCycle(index,value) {
+      if (index < 0 || index > this.length) {
+          throw new Error('Index Error')
+      }
+      const newNode = {
+        value,
+      }
+       const cycleNode = this._find(this.length - 1)
+       cycleNode.next = newNode;
+       newNode.next = this.head.next.next.next.next
+    }
+
     _find(index) {
         let node = this.head;
         for (let i = 0; i < index; i++) {
@@ -58,13 +70,28 @@ class LinkedList {
         for (let i = 0; i < this.length; i++) {
             console.log(this.get(i))
         }
-
+//hello
     }
-    findPrevious(index) {
-        if (index < 0 || index > this.length) {
-            throw new Error('Index error');
-        }
-        return this._find(index - 1)
+    findPrevious(value) {
+        // return this._find(index - 1)
+        let previousNode = null;
+        let currentNode = this.head;
+        while(currentNode !== null){
+          if(this.head === null) {
+            break;
+          }
+          if(currentNode == this.head){
+            currentNode == this.head.next;
+          }
+          if(currentNode.value !== value) {
+            previousNode = currentNode
+            currentNode = currentNode.next
+
+          }
+          else return previousNode
+
+
+        } // checking to see if the node contains a valu
     }
     isEmpty() {
         if(this.head === null) {
@@ -101,9 +128,39 @@ class LinkedList {
         }
         return this._find(Math.floor(counter/2)).value
     }
+//hello
+
+    reverse() {
+       let counter = 0;
+       const reverseList = new LinkedList()
+       const newNode = {}
+       newNode.next = this.head;
+       this.head = newNode
+       reverseList 
+
+
+       return reverseList;
+    }
+
+    hasCycle() {
+      let fast = this.head.next;
+      let slow = this.head;
+      while(fast!== null && fast.next!== null && slow !==null) {
+        if(fast === slow) {
+          return true;
+        }
+        fast = fast.next.next
+        slow = slow.next
+      }
+     return false
+
+    }
+
+
 
 
 }
+
 
 
 export default LinkedList;

@@ -8,9 +8,12 @@ const list = new LinkedList()
 class App extends Component {
   render() {
     for (let i = 0; i<10; i++){
-        list.insert(i, Math.floor(Math.random() * 100));
+        list.insert(i, `item${i}`);
     }
-    list.display();
+
+    console.log(list)
+    console.log(list.hasCycle())
+
     let size = <em>{list.size()}</em>
 
     return (
