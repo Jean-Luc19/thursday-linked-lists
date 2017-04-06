@@ -54,9 +54,11 @@ class LinkedList {
         this.length--;
     }
     display() {
+
         for (let i = 0; i < this.length; i++) {
-            console.log(this.get(i));
+            console.log(this.get(i))
         }
+        
     }
     findPrevious(index) {
         if (index < 0 || index > this.length) {

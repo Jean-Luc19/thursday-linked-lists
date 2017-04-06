@@ -7,11 +7,13 @@ const list = new LinkedList()
 
 class App extends Component {
   render() {
-    for (let i = 0; i<6; i++){
-        list.insert(i, i);
+    for (let i = 0; i<100; i++){
+        list.insert(i, Math.floor(Math.random() * 100));
     }
     console.log(list.findMiddle())
-    console.log(list.size())
+    list.display();
+    let size = <em>{list.size()}</em>
+
     return (
       <div className="App">
         <div className="App-header">
@@ -19,8 +21,10 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+         This size of the list is: {size}
         </p>
+
+
       </div>
     );
   }
