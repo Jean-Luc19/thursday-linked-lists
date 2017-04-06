@@ -7,10 +7,9 @@ const list = new LinkedList()
 
 class App extends Component {
   render() {
-    for (let i = 0; i<100; i++){
+    for (let i = 0; i<10; i++){
         list.insert(i, Math.floor(Math.random() * 100));
     }
-    console.log(list.findMiddle())
     list.display();
     let size = <em>{list.size()}</em>
 

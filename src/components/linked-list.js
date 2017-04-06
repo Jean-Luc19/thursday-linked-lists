@@ -58,7 +58,7 @@ class LinkedList {
         for (let i = 0; i < this.length; i++) {
             console.log(this.get(i))
         }
-        
+
     }
     findPrevious(index) {
         if (index < 0 || index > this.length) {
@@ -73,7 +73,24 @@ class LinkedList {
         else return false
     }
     size() {
-        return this.length
+        let counter = 0;
+        let currentNode = this.head;
+        while(true) {
+            if (this.head === null) {
+                break;
+            }
+            if (currentNode == this.head) {
+                currentNode = this.head.next;
+            }
+            if (currentNode !== null) {
+                currentNode = currentNode.next
+            }
+            else{
+                break;
+            }
+            counter++
+        }
+        return counter
     }
     findMiddle() {
         let counter = 0;
