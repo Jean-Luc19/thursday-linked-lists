@@ -10,8 +10,8 @@ class App extends Component {
     for (let i = 0; i<10; i++){
         list.insert(i, `item${i}`);
     }
-
-    console.log(list)
+    list.reversedList()
+    list.display()
     console.log(list.hasCycle())
 
     let size = <em>{list.size()}</em>

@@ -70,7 +70,6 @@ class LinkedList {
         for (let i = 0; i < this.length; i++) {
             console.log(this.get(i))
         }
-//hello
     }
     findPrevious(value) {
         // return this._find(index - 1)
@@ -91,7 +90,7 @@ class LinkedList {
           else return previousNode
 
 
-        } // checking to see if the node contains a valu
+        }
     }
     isEmpty() {
         if(this.head === null) {
@@ -128,18 +127,21 @@ class LinkedList {
         }
         return this._find(Math.floor(counter/2)).value
     }
-//hello
 
-    reverse() {
-       let counter = 0;
-       const reverseList = new LinkedList()
-       const newNode = {}
-       newNode.next = this.head;
-       this.head = newNode
-       reverseList 
+    reversedList() {
+        let previous = null; // previous
+        let current = this.head; // current
+        let next; // next
 
+        while (current) {
+          debugger;
+          next = current.next;
+          current.next = previous;
+          previous = current;
+          current = next;
+        }
 
-       return reverseList;
+        this.head = previous;
     }
 
     hasCycle() {
